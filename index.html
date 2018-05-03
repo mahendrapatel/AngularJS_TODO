@@ -1,0 +1,64 @@
+<html ng-app="todoApp">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.min.js"></script>
+    <script src="app.module.js"></script>
+    <script src="todo.ctrl.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="base-container" ng-controller="TodoCtrl">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <form>
+                            <div class="col-xs-8">
+                                <div class="form-group">
+                                    <input class=" form-control" placeholder="I need to..." type="text" ng-model="formTodoText" ng-model-instant />
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <input type="button" value="Add TODO" class="btn btn-primary" ng-click="addTodo()" id="addTodo" />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="todo-wrapper">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h2>
+                                    <span class="emphasis">{{getTotalTodos()}}</span> things are incomplete.</h2>
+                                <ul class="todo-list">
+                                    <li ng-repeat="todo in todos">
+                                        <input type="checkbox" ng-model="todo.done" />
+                                        <span class="done-{{todo.done}}">{{todo.text}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="row control-wrapper">
+                            <div class="col-xs-12">
+                                <button id="clearComplete" class=" btn btn-primary" ng-click="clearCompleted()">Clear completed</button>
+                                <button id="clearInComplete" class=" btn btn-primary" ng-click="clearInCompleted()">Clear Incompleted</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

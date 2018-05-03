@@ -1,0 +1,14 @@
+.base-container {
+    max-width: 360px;
+    margin: 40px auto;
+}
+
+.todo-list {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.control-wrapper {
+    margin-top: 30px;
+}
